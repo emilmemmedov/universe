@@ -18,11 +18,12 @@ public class UserService {
     private final UserRepository userRepository;
     private final ModelMapper mapper;
 
-    public ResponseEntity<List<UserGetDto>> getUsers(){
+    public List<UserGetDto> getUsers(){
         List<User> users =  userRepository.findAll();
         List<UserGetDto> data = users.stream()
                 .map(user -> mapper.map(user, UserGetDto.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(data);
+
+        return data;
     }
 }
