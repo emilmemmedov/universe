@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @Data
-public class Response {
+public class ResponseList {
     List data;
     int status;
     String message;

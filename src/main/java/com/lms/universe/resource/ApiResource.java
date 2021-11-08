@@ -1,6 +1,5 @@
 package com.lms.universe.resource;
 
-import com.lms.universe.dto.UserGetDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,8 +7,16 @@ import java.util.List;
 @Service
 public class ApiResource {
 
-    public Response success(List<UserGetDto> data, String message, int status){
-        Response response =  new Response();
+    public ResponseList success(List<?> data, String message, int status){
+        ResponseList response =  new ResponseList();
+        response.setData(data);
+        response.setMessage(message);
+        response.setStatus(status);
+        return response;
+    }
+
+    public ResponseSingle success(Object data, String message, int status){
+        ResponseSingle response =  new ResponseSingle();
         response.setData(data);
         response.setMessage(message);
         response.setStatus(status);

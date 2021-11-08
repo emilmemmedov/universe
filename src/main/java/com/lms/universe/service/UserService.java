@@ -31,8 +31,8 @@ public class UserService {
         return data;
     }
 
-    public User getUserById(Long id) {
+    public UserGetDto getUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow(()-> new ApiException("id: " + id + " not found"));
-        return user;
+        return mapper.map(user, UserGetDto.class);
     }
 }
