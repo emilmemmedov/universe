@@ -1,8 +1,10 @@
 package com.lms.universe.service;
 
+import com.lms.universe.dto.UserCreateDto;
 import com.lms.universe.dto.UserGetDto;
 import com.lms.universe.exception.ApiException;
 import com.lms.universe.model.User;
+import com.lms.universe.model.UserType;
 import com.lms.universe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -34,5 +36,22 @@ public class UserService {
     public UserGetDto getUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow(()-> new ApiException("id: " + id + " not found"));
         return mapper.map(user, UserGetDto.class);
+    }
+
+    public UserGetDto create(UserCreateDto userCreateDto) {
+        userCreateDto.setUserType(UserType.ADMIN);
+        User user = userRepository.save(mapper.map(userCreateDto, User.class));
+        return mapper.map(user, UserGetDto.class);
+    }
+
+    public void update(Long id, UserCreateDto userCreateDto) {
+        userCreateDto.setId(id);
+        User user = mapper.map(userCreateDto, User.class);
+        userRepository.save(user);
+    }
+
+    public void delete(Long id){
+        User user = userRepository.getById(id);
+        userRepository.delete(user);
     }
 }
