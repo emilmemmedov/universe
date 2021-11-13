@@ -9,4 +9,5 @@ public class ResponseSingle {
     Object data;
     int status;
     String message;
+    Object application;
 }

@@ -1,9 +1,7 @@
 package com.lms.universe.service;
 
-import com.lms.universe.Patterns.InstitutionModel;
 import com.lms.universe.dto.InstitutionCreateDto;
 import com.lms.universe.dto.InstitutionGetDto;
-import com.lms.universe.dto.UserGetDto;
 import com.lms.universe.exception.ApiException;
 import com.lms.universe.model.Institution;
 import com.lms.universe.model.InstitutionType;

@@ -1,4 +1,4 @@
-package com.lms.universe.Patterns;
+package com.lms.universe.patterns;
 
 import com.lms.universe.model.InstitutionType;
 
