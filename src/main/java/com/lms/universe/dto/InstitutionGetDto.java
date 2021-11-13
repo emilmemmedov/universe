@@ -1,22 +1,17 @@
 package com.lms.universe.dto;
 
-import com.lms.universe.model.UserType;
+import com.lms.universe.model.InstitutionType;
 import lombok.Data;
+
 import java.util.Date;
 
 @Data
-public class UserGetDto{
+public class InstitutionGetDto{
     private Long id;
 
     private String name;
 
-    private String lastName;
-
-    private String email;
-
-    String password;
-
-    UserType userType;
+    private InstitutionType type;
 
     private Date createdAt;
 

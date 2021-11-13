@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Data
-public class User {
+public class Institution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -18,18 +18,9 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "password")
-    String password;
-
     @Enumerated
     @Column(name = "type")
-    UserType userType;
+    InstitutionType type;
 
     @CreationTimestamp
     @Column(name = "created_at")

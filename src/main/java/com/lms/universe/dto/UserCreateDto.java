@@ -4,7 +4,7 @@ import com.lms.universe.model.UserType;
 import lombok.Data;
 
 @Data
-public class UserCreateDto {
+public class UserCreateDto{
 
     private Long id;
 
