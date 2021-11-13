@@ -1,49 +1,21 @@
 package com.lms.universe.config;
 
 
-import java.util.ArrayList;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
-//Singleton
+
+@ConfigurationProperties("universe")
+@Component
+@Data
 public class ApplicationConfiguration {
-    private  static ApplicationConfiguration instance;
 
-    private String name = "Universe";
-    private String description = "Global LMS(Learning Management System) service";
-    private String version = "1.0.0";
-    private String author = "Emil Mammadov";
-    private List<String> poweredBy = new ArrayList<>(){{
-       add("Spring Boot");
-       add("MYsql");
-       add("Tomcat");
-    }};
+    private String name;
+    private String description;
+    private String version;
+    private String author;
+    private List<String> poweredBy;
 
-    private ApplicationConfiguration() {
-    }
-
-    public static synchronized ApplicationConfiguration getInstance(){
-        if (instance == null){
-            instance = new ApplicationConfiguration();
-        }
-        return instance;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public List<String> getPoweredBy() {
-        return poweredBy;
-    }
 }

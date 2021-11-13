@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/universe
+    username: root
+    password: emikohcktm_M1
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+universe:
+  name: 'Universe'
+  description: 'Global LMS(Learning Management System) service'
+  version: '1.0.0'
+  author: 'Emil Mammadov'
+  poweredBy:
+    - 'SpringBoot'
+    - 'MySql'
+    - 'Tomcat'
