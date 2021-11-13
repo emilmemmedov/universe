@@ -10,5 +10,5 @@ public class InstitutionCreateDto{
 
     private String name;
 
-    private InstitutionType type;
+    private String type;
 }

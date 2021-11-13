@@ -27,7 +27,7 @@ public class InstitutionService extends ServiceModel<InstitutionGetDto, Institut
         List<Institution> institutions =  institutionRepository.findAll();
 
         return institutions.stream()
-                .map(user -> mapper.map(institutions, UserGetDto.class))
+                .map(institution -> mapper.map(institution, InstitutionGetDto.class))
                 .collect(Collectors.toList());
     }
 
@@ -52,13 +52,23 @@ public class InstitutionService extends ServiceModel<InstitutionGetDto, Institut
 
     @Override
     public InstitutionGetDto create(InstitutionCreateDto data) {
-        InstitutionModel institutionModel;
-        System.out.println(InstitutionType.valueOf(data.getType().name()));
-        return new InstitutionGetDto();
+        if (checkValid(data.getType())){
+            Institution model = mapper.map(data, Institution.class);
+            model.setType(InstitutionType.valueOf(data.getType()));
+            Institution institution = institutionRepository.save(model);
+            return mapper.map(institution,InstitutionGetDto.class);
+        }
+        else {
+            throw new ApiException("user type not correct");
+        }
+    }
 
-//        data.getType()
-//        data.setUserType(UserType.ADMIN);
-//        User user = userRepository.save(mapper.map(data, User.class));
-//        return mapper.map(user, UserGetDto.class);
+    public boolean checkValid(String type){
+        for (InstitutionType typ : InstitutionType.values()) {
+            if (typ.name().equals(type)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
