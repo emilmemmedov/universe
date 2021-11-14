@@ -1,7 +1,6 @@
 package com.lms.universe.validation.institution;
 
 import javax.validation.Constraint;
-import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Target({ElementType.FIELD, ElementType.PARAMETER})

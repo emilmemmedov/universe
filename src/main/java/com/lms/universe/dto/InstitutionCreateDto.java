@@ -1,6 +1,5 @@
 package com.lms.universe.dto;
 
-import com.lms.universe.model.InstitutionType;
 import lombok.Data;
 
 @Data
