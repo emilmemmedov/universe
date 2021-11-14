@@ -21,7 +21,6 @@ public abstract class Controller<GetDto, CreateDto> {
 
     @GetMapping("/")
     public ResponseList index(){
-        System.out.println("im here");
         return resource.success(serviceModel.index(),"nothing", HttpStatus.OK.value());
     }
 
