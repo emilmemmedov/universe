@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 public abstract class Controller<GetDto, CreateDto> {
 
@@ -30,7 +32,7 @@ public abstract class Controller<GetDto, CreateDto> {
     }
 
     @PostMapping("/")
-    public ResponseSingle create(@RequestBody CreateDto data){
+    public ResponseSingle create(@Valid @RequestBody CreateDto data){
         GetDto userGetDto = serviceModel.create(data);
         return resource.success(userGetDto, "nothing", HttpStatus.OK.value());
     }

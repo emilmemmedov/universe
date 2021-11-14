@@ -50,23 +50,9 @@ public class InstitutionService extends ServiceModel<InstitutionGetDto, Institut
 
     @Override
     public InstitutionGetDto create(InstitutionCreateDto data) {
-        if (checkValid(data.getType())){
-            Institution model = mapper.map(data, Institution.class);
-            model.setType(InstitutionType.valueOf(data.getType()));
-            Institution institution = institutionRepository.save(model);
-            return mapper.map(institution,InstitutionGetDto.class);
-        }
-        else {
-            throw new ApiException("user type not correct");
-        }
-    }
-
-    public boolean checkValid(String type){
-        for (InstitutionType typ : InstitutionType.values()) {
-            if (typ.name().equals(type)) {
-                return true;
-            }
-        }
-        return false;
+        Institution model = mapper.map(data, Institution.class);
+        model.setType(InstitutionType.valueOf(data.getType()));
+        Institution institution = institutionRepository.save(model);
+        return mapper.map(institution,InstitutionGetDto.class);
     }
 }
