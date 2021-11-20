@@ -50,8 +50,18 @@ public class UserService extends ServiceModel<UserGetDto, UserCreateDto> {
 
     @Override
     public UserGetDto create(UserCreateDto data) {
-        data.setUserType(UserType.ADMIN);
+        data = setUserType(data);
         User user = userRepository.save(mapper.map(data, User.class));
         return mapper.map(user, UserGetDto.class);
+    }
+
+    public UserCreateDto setUserType(UserCreateDto dto){
+        if (dto.getAge() > 15 && dto.getAge() < 20){
+            dto.setUserType(UserType.STUDENT);
+        }
+        else{
+            dto.setUserType(UserType.INSTRUCTOR);
+        }
+        return dto;
     }
 }
