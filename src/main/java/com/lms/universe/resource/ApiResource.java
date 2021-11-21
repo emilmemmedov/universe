@@ -30,4 +30,13 @@ public class ApiResource {
         response.setApplication(application);
         return ResponseEntity.ok(response);
     }
+
+    public ResponseEntity<ResponseSingle> error(Object data, String message, int status){
+        com.lms.universe.resource.ResponseSingle response =  new com.lms.universe.resource.ResponseSingle();
+        response.setData(data);
+        response.setMessage(message);
+        response.setStatus(status);
+        response.setApplication(application);
+        return ResponseEntity.ok(response);
+    }
 }
