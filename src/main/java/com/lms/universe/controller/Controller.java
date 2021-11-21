@@ -81,7 +81,7 @@ public abstract class Controller<GetDto, CreateDto> {
 
     private void isRequested(CRUD method) throws NotFoundException {
         if (!Arrays.asList(this.methods).contains(method)){
-            throw new NotFoundException("not found");
+            throw new NotFoundException("route not defined");
         }
     }
 }

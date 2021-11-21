@@ -31,9 +31,8 @@ public class ApiResource {
         return ResponseEntity.ok(response);
     }
 
-    public ResponseEntity<ResponseSingle> error(Object data, String message, int status){
-        com.lms.universe.resource.ResponseSingle response =  new com.lms.universe.resource.ResponseSingle();
-        response.setData(data);
+    public ResponseEntity<ErrorResponse> error(String message, int status){
+        com.lms.universe.resource.ErrorResponse response =  new com.lms.universe.resource.ErrorResponse();
         response.setMessage(message);
         response.setStatus(status);
         response.setApplication(application);
