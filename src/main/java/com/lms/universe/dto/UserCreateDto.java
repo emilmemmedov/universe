@@ -2,8 +2,6 @@ package com.lms.universe.dto;
 
 import com.lms.universe.model.UserType;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
 public class UserCreateDto{

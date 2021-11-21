@@ -21,7 +21,6 @@ public class UserService extends ServiceModel<UserGetDto, UserCreateDto> {
 
     @Override
     public List<?> index() {
-        System.out.println("im in service index");
         List<User> users =  userRepository.findAll();
 
         return users.stream()

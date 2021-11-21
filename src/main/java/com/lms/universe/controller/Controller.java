@@ -7,6 +7,7 @@ import com.lms.universe.service.ServiceModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,18 +21,18 @@ public abstract class Controller<GetDto, CreateDto> {
     private final ServiceModel<GetDto, CreateDto> serviceModel;
 
     @GetMapping("/")
-    public ResponseList index(){
+    public ResponseEntity<ResponseList> index(){
         return resource.success(serviceModel.index(),"nothing", HttpStatus.OK.value());
     }
 
     @GetMapping("/{id}")
-    public ResponseSingle show(@PathVariable("id") Long id){
+    public ResponseEntity<ResponseSingle> show(@PathVariable("id") Long id){
         GetDto model = serviceModel.show(id);
         return resource.success(model, "nothing", HttpStatus.OK.value());
     }
 
     @PostMapping("/")
-    public ResponseSingle create(@Valid @RequestBody CreateDto data){
+    public ResponseEntity<ResponseSingle> create(@Valid @RequestBody CreateDto data){
         GetDto userGetDto = serviceModel.create(data);
         return resource.success(userGetDto, "nothing", HttpStatus.OK.value());
     }
