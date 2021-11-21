@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/user")
 @Slf4j
 public class UserController extends Controller<UserGetDto, UserCreateDto>{
+
     public UserController(ServiceModel<UserGetDto, UserCreateDto> serviceModel) {
         super(serviceModel);
     }
