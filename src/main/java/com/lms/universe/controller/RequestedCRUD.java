@@ -1,6 +1,8 @@
 package com.lms.universe.controller;
 
 
+import com.lms.universe.config.CRUD;
+
 import java.lang.annotation.*;
 
 /**
@@ -10,6 +12,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface RequestedCRUD {
-    public String[] mapping() default "Invalid Institution type";
+    public CRUD[] mapping() default {CRUD.CREATE, CRUD.SHOW,CRUD.UPDATE, CRUD.INDEX,CRUD.DELETE};
 
 }
