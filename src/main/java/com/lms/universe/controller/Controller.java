@@ -22,7 +22,7 @@ public abstract class Controller<GetDto, CreateDto> {
     @Autowired
     private ApiResource resource;
 
-    private CRUD[] methods;
+    private final CRUD[] methods;
 
     private final ServiceModel<GetDto, CreateDto> serviceModel;
 
